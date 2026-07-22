@@ -5,14 +5,6 @@ set -eu
 DB_PASSWORD="$(tr -d '\r\n' < /run/secrets/db_password)"
 WP_ADMIN_PASSWORD="$(grep '^WP_ADMIN_PASSWORD=' /run/secrets/wp_credentials | cut -d'=' -f2- | tr -d '\r\n')"
 WP_USER_PASSWORD="$(grep '^WP_USER_PASSWORD=' /run/secrets/wp_credentials | cut -d'=' -f2- | tr -d '\r\n')"
-WP_ADMIN_USER_LOWER="$(printf "%s" "${WP_ADMIN_USER}" | tr '[:upper:]' '[:lower:]')"
-
-case "${WP_ADMIN_USER_LOWER}" in
-	*admin* | *administrator*)
-		echo "WP_ADMIN_USER must not contain admin or administrator." >&2
-		exit 1
-		;;
-esac
 
 generate_salt() {
 	php -r 'echo bin2hex(random_bytes(64));'

@@ -81,8 +81,6 @@ container and are not allowed for these mandatory persistent storages.
   - `secrets/db_root_password.txt`
   - `secrets/db_password.txt`
   - `secrets/credentials.txt`
-- each secret file must exist and be non-empty (`make up` now enforces this preflight)
-- `WP_ADMIN_USER` in `srcs/.env` must not contain `admin` or `administrator`
 
 ### Build And Run
 

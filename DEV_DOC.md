@@ -41,8 +41,6 @@ Example `/etc/hosts` entry for local testing inside the VM:
 - host paths for persistent data
 - certificate subject fields
 
-Subject rule reminder: `WP_ADMIN_USER` must not contain `admin` or `administrator`.
-
 ### Secret Files
 
 Create or update these files before the first launch:
@@ -57,8 +55,6 @@ Create or update these files before the first launch:
 WP_ADMIN_PASSWORD=...
 WP_USER_PASSWORD=...
 ```
-
-`make up` checks that all required secret files exist and are non-empty before starting.
 
 ## Build And Launch
 
